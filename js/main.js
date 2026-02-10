@@ -279,6 +279,7 @@
     function initNavMenu() {
         const burger = document.querySelector('.nav-burger');
         const overlay = document.querySelector('.nav-overlay');
+        const navClose = document.querySelector('.nav-close');
         const navLinks = document.querySelector('.nav-links');
 
         if (!burger || !overlay || !navLinks) return;
@@ -305,8 +306,9 @@
 
         burger.addEventListener('click', toggleMenu);
         overlay.addEventListener('click', closeMenu);
+        if (navClose) navClose.addEventListener('click', closeMenu);
 
-        navLinks.querySelectorAll('.nav-link, .btn').forEach(link => {
+        navLinks.querySelectorAll('.nav-link, .nav-links .btn').forEach(link => {
             link.addEventListener('click', closeMenu);
         });
 
