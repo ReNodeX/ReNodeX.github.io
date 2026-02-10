@@ -343,17 +343,72 @@ section {
 /* === NAVIGATION === */
 .navbar {
     position: fixed;
-    top: var(--space-6);
+    top: var(--space-3);
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1000;
+    z-index: 1002;
     width: calc(100% - var(--space-12));
     max-width: 1120px;
-    padding: var(--space-4) var(--space-8);
-    border-radius: var(--radius-2xl);
+    padding: var(--space-2) var(--space-6);
+    border-radius: var(--radius-xl);
     box-shadow: var(--shadow-lg);
     transition: all var(--duration-slow) var(--ease-liquid);
     animation: navSlideIn 0.8s var(--ease-spring) 0.3s both;
+}
+
+.nav-burger {
+    display: none;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border-radius: var(--radius-md);
+    color: var(--gray-300);
+    transition: color var(--duration-base), background var(--duration-base);
+}
+
+.nav-burger:hover {
+    color: var(--white);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+.nav-burger-line {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 1px;
+    transition: transform var(--duration-base), opacity var(--duration-base);
+}
+
+.nav-burger[aria-expanded="true"] .nav-burger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-burger[aria-expanded="true"] .nav-burger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-burger[aria-expanded="true"] .nav-burger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.nav-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1001;
+    background: rgba(10, 10, 11, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: opacity var(--duration-base);
 }
 
 @keyframes navSlideIn {
@@ -520,7 +575,7 @@ section {
     align-items: center;
     justify-content: center;
     position: relative;
-    padding: calc(90px + var(--section-padding)) 0 var(--section-padding);
+    padding: calc(72px + var(--section-padding)) 0 var(--section-padding);
     overflow: hidden;
 }
 
@@ -1522,52 +1577,78 @@ section {
     }
     
     .navbar {
-        width: calc(100% - var(--space-6));
-        top: var(--space-3);
-        padding: var(--space-3) var(--space-4);
-        border-radius: var(--radius-xl);
+        width: calc(100% - var(--space-4));
+        top: var(--space-2);
+        padding: var(--space-2) var(--space-4);
+        border-radius: var(--radius-lg);
     }
     
-    .navbar .container {
-        padding: 0;
-        flex-wrap: wrap;
-        gap: var(--space-3);
-    }
-    
-    .nav-brand {
-        font-size: var(--text-lg);
-        order: 1;
-        flex: 1;
-        min-height: 44px;
-        display: inline-flex;
-        align-items: center;
+    .nav-burger {
+        display: flex;
     }
     
     .nav-links {
-        order: 2;
-        width: 100%;
-        justify-content: flex-end;
-        gap: var(--space-3);
-        flex-wrap: wrap;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: min(280px, 100%);
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: stretch;
+        gap: 0;
+        padding: var(--space-8);
+        background: linear-gradient(180deg, var(--gray-900) 0%, var(--gray-950) 100%);
+        border-left: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.4);
+        z-index: 1003;
+        transform: translateX(100%);
+        transition: transform var(--duration-slow) var(--ease-liquid);
+        overflow-y: auto;
     }
     
     .nav-link {
-        font-size: var(--text-sm);
-        padding: var(--space-2) var(--space-3);
-        min-height: 44px;
-        display: inline-flex;
+        display: block;
+        padding: var(--space-4);
+        font-size: var(--text-base);
+        border-radius: var(--radius-md);
+        min-height: 48px;
         align-items: center;
     }
     
+    .nav-link::after {
+        display: none;
+    }
+    
     .nav-links .btn-primary {
-        padding: var(--space-3) var(--space-5);
-        font-size: var(--text-sm);
-        min-height: 44px;
+        margin-top: var(--space-2);
+        padding: var(--space-4);
+        justify-content: center;
+        min-height: 48px;
+    }
+    
+    .nav-overlay {
+        display: block;
+        opacity: 0;
+        pointer-events: none;
+    }
+    
+    body.nav-open .nav-overlay {
+        opacity: 1;
+        pointer-events: auto;
+    }
+    
+    body.nav-open .nav-links {
+        transform: translateX(0);
+    }
+    
+    body.nav-open {
+        overflow: hidden;
     }
     
     .hero {
         min-height: auto;
-        padding: calc(80px + var(--space-10)) 0 var(--space-10);
+        padding: calc(56px + var(--space-10)) 0 var(--space-10);
     }
     
     .hero-content {
@@ -1772,8 +1853,7 @@ section {
     }
     
     .navbar {
-        width: calc(100% - var(--space-4));
-        top: var(--space-2);
+        width: calc(100% - var(--space-3));
         padding: var(--space-2) var(--space-3);
     }
     
@@ -1781,19 +1861,24 @@ section {
         font-size: var(--text-base);
     }
     
+    .nav-links {
+        width: min(260px, 100%);
+        padding: var(--space-6);
+    }
+    
     .nav-link {
-        font-size: var(--text-xs);
-        padding: var(--space-2) var(--space-2);
+        font-size: var(--text-sm);
+        padding: var(--space-3);
     }
     
     .nav-links .btn-primary {
-        padding: var(--space-2) var(--space-4);
-        font-size: var(--text-xs);
+        padding: var(--space-3);
+        font-size: var(--text-sm);
     }
     
     .nav-links .btn-primary .btn-icon {
-        width: 16px;
-        height: 16px;
+        width: 18px;
+        height: 18px;
     }
     
     /* Preloader на мобильном */
@@ -1822,7 +1907,7 @@ section {
     }
     
     .hero {
-        padding: calc(70px + var(--space-8)) 0 var(--space-8);
+        padding: calc(52px + var(--space-8)) 0 var(--space-8);
     }
     
     .hero-image {
@@ -2028,6 +2113,10 @@ section {
     
     .nav-brand {
         font-size: var(--text-sm);
+    }
+    
+    .hero {
+        padding: calc(50px + var(--space-6)) 0 var(--space-6);
     }
     
     .hero-image {
