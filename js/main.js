@@ -275,52 +275,6 @@
         });
     }
 
-    // Mobile nav (burger menu)
-    function initNavMenu() {
-        const burger = document.querySelector('.nav-burger');
-        const overlay = document.querySelector('.nav-overlay');
-        const navClose = document.querySelector('.nav-close');
-        const navLinks = document.querySelector('.nav-links');
-
-        if (!burger || !overlay || !navLinks) return;
-
-        function openMenu() {
-            document.body.classList.add('nav-open');
-            burger.setAttribute('aria-expanded', 'true');
-            burger.setAttribute('aria-label', 'Close menu');
-        }
-
-        function closeMenu() {
-            document.body.classList.remove('nav-open');
-            burger.setAttribute('aria-expanded', 'false');
-            burger.setAttribute('aria-label', 'Open menu');
-        }
-
-        function toggleMenu() {
-            if (document.body.classList.contains('nav-open')) {
-                closeMenu();
-            } else {
-                openMenu();
-            }
-        }
-
-        burger.addEventListener('click', toggleMenu);
-        overlay.addEventListener('click', closeMenu);
-        if (navClose) navClose.addEventListener('click', closeMenu);
-
-        navLinks.querySelectorAll('.nav-link, .nav-links .btn').forEach(link => {
-            link.addEventListener('click', closeMenu);
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeMenu();
-        });
-
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 768) closeMenu();
-        });
-    }
-
     // Counter Animation
     function initCounterAnimation() {
         const counters = document.querySelectorAll('.stat-value, .stat-number');
@@ -367,7 +321,6 @@
         
         // Initialize effects after a small delay
         setTimeout(() => {
-            initNavMenu();
             initScrollAnimations();
             initNavbarScroll();
             initCardEffects();
