@@ -147,20 +147,16 @@ body.loading > *:not(.preloader) {
     opacity: 0;
 }
 
-/* === PRELOADER - LIQUID GLASS DESIGNER === */
+/* === PRELOADER - GLASS STYLE (КАК ШАПКА) === */
 .preloader {
     position: fixed;
     inset: 0;
     z-index: 10000;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: var(--space-10);
-    transition: opacity 0.7s var(--ease-liquid), visibility 0.7s var(--ease-liquid);
-    background: 
-        radial-gradient(ellipse 100% 100% at 50% 50%, rgba(255, 107, 74, 0.06) 0%, transparent 60%),
-        var(--gray-950);
+    background: var(--gray-950);
+    transition: opacity 0.5s var(--ease-liquid), visibility 0.5s var(--ease-liquid);
 }
 
 .preloader.hidden {
@@ -169,147 +165,42 @@ body.loading > *:not(.preloader) {
     pointer-events: none;
 }
 
-/* Стеклянная панель по центру */
 .preloader-glass {
-    position: relative;
-    width: 200px;
-    height: 200px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 32px;
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 
-        0 25px 50px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    animation: preloaderPanelFloat 4s var(--ease-in-out) infinite;
-}
-
-.preloader-glass::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: 33px;
-    padding: 1px;
-    background: linear-gradient(135deg, rgba(255, 107, 74, 0.4) 0%, transparent 40%, transparent 60%, rgba(255, 107, 74, 0.2) 100%);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    opacity: 0.8;
-    animation: preloaderBorderGlow 3s var(--ease-liquid) infinite;
-}
-
-/* Центральный орб */
-.preloader-orb {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: radial-gradient(circle at 30% 30%, rgba(255, 107, 74, 0.35) 0%, rgba(255, 107, 74, 0.08) 50%, transparent 70%);
-    border: 1px solid rgba(255, 107, 74, 0.15);
-    animation: preloaderOrbPulse 2.5s var(--ease-liquid) infinite;
-}
-
-.preloader-orb::after {
-    content: '';
-    position: absolute;
-    inset: -3px;
-    border-radius: 50%;
-    border: 1px solid transparent;
-    border-top-color: rgba(255, 107, 74, 0.5);
-    border-right-color: rgba(255, 107, 74, 0.2);
-    animation: preloaderSpin 1.8s linear infinite;
+    gap: var(--space-5);
+    padding: var(--space-8) var(--space-12);
+    border-radius: var(--radius-xl);
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-lg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
 }
 
 .preloader-logo {
-    position: relative;
-    z-index: 2;
-    font-size: 2.25rem;
-    font-weight: 800;
-    letter-spacing: -0.04em;
-    background: linear-gradient(135deg, var(--white) 0%, var(--gray-200) 40%, var(--primary-400) 100%);
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, var(--primary-400) 0%, var(--primary-600) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-shadow: 0 0 40px rgba(255, 107, 74, 0.2);
-    animation: preloaderLogoFloat 3s var(--ease-in-out) infinite;
 }
 
-/* Кольцо прогресса */
-.preloader-bar {
-    width: 120px;
-    height: 120px;
+.preloader-dot {
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    position: relative;
-    margin: calc(-1 * var(--space-6)) 0 0;
+    background: var(--primary-500);
+    animation: preloaderDot 1s var(--ease-in-out) infinite;
 }
 
-.preloader-bar::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.08);
-}
-
-.preloader-bar::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    border: 2px solid transparent;
-    border-top-color: var(--primary-500);
-    border-right-color: rgba(255, 107, 74, 0.4);
-    animation: preloaderRingSpin 1.2s var(--ease-liquid) infinite;
-}
-
-.preloader-text {
-    font-size: 0.7rem;
-    color: var(--gray-500);
-    letter-spacing: 0.35em;
-    text-transform: uppercase;
-    font-weight: 600;
-    animation: preloaderTextFade 2s var(--ease-liquid) infinite;
-}
-
-@keyframes preloaderPanelFloat {
-    0%, 100% { transform: translateY(0) scale(1); }
-    50% { transform: translateY(-8px) scale(1.02); }
-}
-
-@keyframes preloaderBorderGlow {
-    0%, 100% { opacity: 0.6; }
-    50% { opacity: 1; }
-}
-
-@keyframes preloaderOrbPulse {
-    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
-    50% { transform: translate(-50%, -50%) scale(1.08); opacity: 0.9; }
-}
-
-@keyframes preloaderSpin {
-    to { transform: rotate(360deg); }
-}
-
-@keyframes preloaderLogoFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-4px); }
-}
-
-@keyframes preloaderRingSpin {
-    to { transform: rotate(360deg); }
-}
-
-@keyframes preloaderTextFade {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 1; }
+@keyframes preloaderDot {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1); }
 }
 
 /* === UTILITY CLASSES === */
@@ -1589,31 +1480,31 @@ section {
     
     .nav-links {
         position: fixed;
-        top: 0;
-        right: 0;
-        width: min(280px, 100%);
-        height: 100%;
+        inset: 0;
+        z-index: 1003;
         flex-direction: column;
         justify-content: center;
-        align-items: stretch;
-        gap: 0;
+        align-items: center;
+        gap: var(--space-6);
         padding: var(--space-8);
-        background: linear-gradient(180deg, var(--gray-900) 0%, var(--gray-950) 100%);
-        border-left: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.4);
-        z-index: 1003;
-        transform: translateX(100%);
-        transition: transform var(--duration-slow) var(--ease-liquid);
-        overflow-y: auto;
+        background: transparent;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity var(--duration-base) var(--ease-liquid), visibility var(--duration-base);
     }
     
     .nav-link {
         display: block;
-        padding: var(--space-4);
-        font-size: var(--text-base);
+        padding: var(--space-4) var(--space-6);
+        font-size: var(--text-lg);
         border-radius: var(--radius-md);
         min-height: 48px;
         align-items: center;
+        color: var(--gray-100);
+    }
+    
+    .nav-link:hover {
+        color: var(--white);
     }
     
     .nav-link::after {
@@ -1621,16 +1512,17 @@ section {
     }
     
     .nav-links .btn-primary {
-        margin-top: var(--space-2);
-        padding: var(--space-4);
+        padding: var(--space-4) var(--space-8);
         justify-content: center;
         min-height: 48px;
+        font-size: var(--text-base);
     }
     
     .nav-overlay {
         display: block;
         opacity: 0;
         pointer-events: none;
+        transition: opacity var(--duration-base);
     }
     
     body.nav-open .nav-overlay {
@@ -1639,7 +1531,8 @@ section {
     }
     
     body.nav-open .nav-links {
-        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
     }
     
     body.nav-open {
@@ -1881,29 +1774,12 @@ section {
         height: 18px;
     }
     
-    /* Preloader на мобильном */
     .preloader-glass {
-        width: 160px;
-        height: 160px;
-    }
-    
-    .preloader-orb {
-        width: 80px;
-        height: 80px;
+        padding: var(--space-6) var(--space-8);
     }
     
     .preloader-logo {
-        font-size: 1.75rem;
-    }
-    
-    .preloader-bar {
-        width: 100px;
-        height: 100px;
-    }
-    
-    .preloader-text {
-        font-size: 0.65rem;
-        letter-spacing: 0.25em;
+        font-size: var(--text-xl);
     }
     
     .hero {
