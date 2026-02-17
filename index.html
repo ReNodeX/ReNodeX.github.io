@@ -11,11 +11,6 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="apple-touch-icon" href="favicon.svg">
     
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    
     <!-- Styles -->
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -67,6 +62,9 @@
                     Industry-leading file type identification and analysis. Trusted by security researchers, malware analysts, and developers worldwide.
                 </p>
                 
+                <!-- Latest Release Badge -->
+                <div id="latest-release-badge" class="latest-release-badge fade-in-up delay-2" style="display:none;"></div>
+                
                 <div class="hero-actions fade-in-up delay-2">
                     <a href="https://github.com/horsicq/DIE-engine/releases" target="_blank" class="btn btn-primary btn-lg">
                         <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -90,11 +88,11 @@
                         <div class="stat-label">GitHub Stars</div>
                     </div>
                     <div class="stat-item glass">
-                        <div class="stat-value">879+</div>
+                        <div class="stat-value" id="hero-forks">879+</div>
                         <div class="stat-label">Forks</div>
                     </div>
                     <div class="stat-item glass">
-                        <div class="stat-value">50K+</div>
+                        <div class="stat-value" id="hero-downloads">1M+</div>
                         <div class="stat-label">Downloads</div>
                     </div>
                 </div>
@@ -169,8 +167,8 @@
                             <circle cx="12" cy="18" r="3"/>
                             <circle cx="6" cy="6" r="3"/>
                             <circle cx="18" cy="6" r="3"/>
-                            <path d="M18 9a9 9 0 0 1-9 9"/>
-                            <path d="M6 9a9 9 0 0 0 9 9"/>
+                            <path d="M6 9v3c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V9"/>
+                            <line x1="12" y1="14" x2="12" y2="15"/>
                         </svg>
                     </div>
                     <div class="stat-number" id="detailed-forks">879</div>
@@ -180,12 +178,13 @@
                 <div class="stat-card fade-in-up delay-2">
                     <div class="stat-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
                         </svg>
                     </div>
-                    <div class="stat-number" id="detailed-watchers">168</div>
-                    <div class="stat-text">Watchers</div>
+                    <div class="stat-number" id="detailed-downloads">1,000,000+</div>
+                    <div class="stat-text">Downloads</div>
                 </div>
                 
                 <div class="stat-card fade-in-up delay-3">
@@ -199,6 +198,13 @@
                     <div class="stat-number" id="detailed-issues">--</div>
                     <div class="stat-text">Open Issues</div>
                 </div>
+            </div>
+
+            <!-- Language Breakdown -->
+            <div class="languages-section">
+                <h4 class="languages-title">Repository Languages</h4>
+                <div class="languages-bar" id="languages-bar"></div>
+                <div class="languages-legend" id="languages-legend"></div>
             </div>
         </div>
     </section>
@@ -285,6 +291,7 @@
                         <span class="format-tag">PDF</span>
                         <span class="format-tag">MSI</span>
                         <span class="format-tag">NE</span>
+                        <span class="format-tag format-tag-etc">etc.</span>
                     </div>
                 </div>
             </div>
@@ -385,6 +392,8 @@
     <section class="cta-section">
         <div class="container">
             <div class="cta-card">
+                <div class="cta-orb cta-orb-1"></div>
+                <div class="cta-orb cta-orb-2"></div>
                 <h2 class="cta-title">Ready to Get Started?</h2>
                 <p class="cta-description">Download Detect It Easy and join thousands of security professionals who trust DIE for their file analysis needs.</p>
                 <div class="cta-buttons">
@@ -400,6 +409,34 @@
                         Read Documentation
                     </a>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commits Tracker Section -->
+    <section class="commits-tracker">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Activity</span>
+                <h2 class="section-title">Commits Tracker</h2>
+                <p class="section-subtitle">Follow the latest development activity in real-time from the GitHub repository.</p>
+            </div>
+            <div class="commits-timeline" id="commits-list">
+                <div class="commits-loading">Loading commits...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contributors Section -->
+    <section class="contributors-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Community</span>
+                <h2 class="section-title">Top Contributors</h2>
+                <p class="section-subtitle">The people behind the project making DIE better every day.</p>
+            </div>
+            <div class="contributors-grid" id="contributors-list">
+                <div class="commits-loading">Loading contributors...</div>
             </div>
         </div>
     </section>
@@ -450,6 +487,6 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="js/main.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
