@@ -312,7 +312,7 @@ section {
 
 .navbar:hover {
     transform: translateX(-50%);
-    box-shadow: var(--shadow-xl), var(--shadow-glow);
+    animation: glowPulse 2.5s ease-in-out infinite;
 }
 
 .navbar .container {
@@ -415,7 +415,7 @@ section {
 
 .btn-primary:hover {
     transform: translateY(-3px) scale(1.02);
-    box-shadow: var(--shadow-lg), 0 0 40px rgba(255, 107, 74, 0.4);
+    animation: btnGlow 1.5s ease-in-out infinite;
 }
 
 .btn-primary:active {
@@ -436,7 +436,16 @@ section {
     background: rgba(255, 255, 255, 0.1);
     border-color: rgba(255, 107, 74, 0.5);
     transform: translateY(-3px) scale(1.02);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: btnSecondaryGlow 1.8s ease-in-out infinite;
+}
+
+@keyframes btnSecondaryGlow {
+    0%, 100% {
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 107, 74, 0.15);
+    }
+    50% {
+        box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4), 0 0 30px rgba(255, 107, 74, 0.25);
+    }
 }
 
 .btn-lg {
@@ -630,7 +639,7 @@ section {
 }
 
 .stat-item:hover {
-    box-shadow: var(--shadow-lg), var(--shadow-glow);
+    animation: glowPulse 2s ease-in-out infinite;
 }
 
 .stat-value {
@@ -723,8 +732,8 @@ section {
 
 .feature-card:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: var(--shadow-xl), var(--shadow-glow);
     border-color: rgba(255, 107, 74, 0.25);
+    animation: shadowPulse 2s ease-in-out infinite;
 }
 
 .feature-icon {
@@ -799,8 +808,8 @@ section {
 
 .stat-card:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: var(--shadow-lg), var(--shadow-glow);
     border-color: rgba(255, 107, 74, 0.25);
+    animation: shadowPulse 2s ease-in-out infinite;
 }
 
 .stat-icon {
@@ -864,8 +873,8 @@ section {
 
 .use-case-card:hover {
     transform: translateY(-8px) scale(1.02);
-    box-shadow: var(--shadow-lg), var(--shadow-glow);
     border-color: rgba(255, 107, 74, 0.25);
+    animation: shadowPulse 2s ease-in-out infinite;
 }
 
 .use-case-number {
@@ -948,8 +957,8 @@ section {
 
 .os-item:hover {
     transform: translateY(-8px) scale(1.05);
-    box-shadow: var(--shadow-lg), var(--shadow-glow);
     border-color: rgba(255, 107, 74, 0.25);
+    animation: glowPulse 1.8s ease-in-out infinite;
 }
 
 .os-icon {
@@ -1004,7 +1013,7 @@ section {
     background: linear-gradient(135deg, var(--primary-500) 0%, var(--primary-600) 100%);
     color: var(--white);
     transform: translateY(-3px) scale(1.05);
-    box-shadow: var(--shadow-md), 0 0 20px rgba(255, 107, 74, 0.3);
+    animation: tagGlow 1.5s ease-in-out infinite;
 }
 
 /* === PARTNERS SECTION === */
@@ -1039,7 +1048,7 @@ section {
     transform: translateY(-8px) scale(1.03);
     background: linear-gradient(160deg, rgba(60, 60, 70, 0.8) 0%, rgba(40, 40, 50, 0.9) 100%);
     border-color: rgba(255, 107, 74, 0.3);
-    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 107, 74, 0.15);
+    animation: glowPulse 2s ease-in-out infinite;
 }
 
 .partner-logo {
@@ -1173,6 +1182,12 @@ section {
     border-color: var(--primary-500);
     background: rgba(255, 107, 74, 0.08);
     transform: translateY(-2px);
+    animation: badgeGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes badgeGlow {
+    0%, 100% { box-shadow: 0 0 10px rgba(255, 107, 74, 0.15); }
+    50% { box-shadow: 0 0 25px rgba(255, 107, 74, 0.3); }
 }
 
 .release-badge-icon {
@@ -1295,8 +1310,21 @@ section {
 }
 
 .cta-card:hover {
-    box-shadow: var(--shadow-xl), var(--shadow-glow-strong);
     transform: translateY(-4px);
+    animation: ctaHoverGlow 2s ease-in-out infinite, ctaBorderGlow 4s ease-in-out infinite;
+}
+
+@keyframes ctaHoverGlow {
+    0%, 100% {
+        box-shadow: 
+            var(--shadow-xl),
+            0 0 40px rgba(255, 107, 74, 0.2);
+    }
+    50% {
+        box-shadow: 
+            var(--shadow-xl),
+            0 0 70px rgba(255, 107, 74, 0.35);
+    }
 }
 
 .cta-orb {
@@ -1439,7 +1467,7 @@ section {
 .commit-content:hover {
     border-color: rgba(255, 107, 74, 0.2);
     transform: translateX(4px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    animation: glowPulse 2s ease-in-out infinite;
 }
 
 .commit-header {
@@ -1520,6 +1548,7 @@ section {
 .contributor-item:hover {
     transform: translateY(-4px) scale(1.05);
     background: rgba(255, 255, 255, 0.03);
+    box-shadow: 0 0 20px rgba(255, 107, 74, 0.15);
 }
 
 .contributor-avatar {
@@ -1532,7 +1561,12 @@ section {
 
 .contributor-item:hover .contributor-avatar {
     border-color: var(--primary-500);
-    box-shadow: 0 0 12px rgba(255, 107, 74, 0.3);
+    animation: avatarGlow 1.5s ease-in-out infinite;
+}
+
+@keyframes avatarGlow {
+    0%, 100% { box-shadow: 0 0 10px rgba(255, 107, 74, 0.3); }
+    50% { box-shadow: 0 0 20px rgba(255, 107, 74, 0.5); }
 }
 
 .contributor-name {
@@ -1729,10 +1763,64 @@ section {
 /* Card hover glow */
 @keyframes cardGlow {
     0%, 100% {
-        box-shadow: 0 0 20px rgba(255, 107, 74, 0.1);
+        box-shadow: 0 0 20px rgba(255, 107, 74, 0.15);
     }
     50% {
-        box-shadow: 0 0 40px rgba(255, 107, 74, 0.2);
+        box-shadow: 0 0 40px rgba(255, 107, 74, 0.35);
+    }
+}
+
+@keyframes shadowPulse {
+    0%, 100% {
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.4),
+            0 0 20px rgba(255, 107, 74, 0.15),
+            0 0 40px rgba(255, 107, 74, 0.08);
+    }
+    50% {
+        box-shadow: 
+            0 12px 40px rgba(0, 0, 0, 0.5),
+            0 0 35px rgba(255, 107, 74, 0.25),
+            0 0 60px rgba(255, 107, 74, 0.15);
+    }
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow: 
+            var(--shadow-lg),
+            0 0 25px rgba(255, 107, 74, 0.2);
+    }
+    50% {
+        box-shadow: 
+            var(--shadow-xl),
+            0 0 45px rgba(255, 107, 74, 0.35);
+    }
+}
+
+@keyframes tagGlow {
+    0%, 100% {
+        box-shadow: 
+            var(--shadow-md),
+            0 0 15px rgba(255, 107, 74, 0.25);
+    }
+    50% {
+        box-shadow: 
+            var(--shadow-lg),
+            0 0 30px rgba(255, 107, 74, 0.4);
+    }
+}
+
+@keyframes btnGlow {
+    0%, 100% {
+        box-shadow: 
+            var(--shadow-md),
+            0 0 25px rgba(255, 107, 74, 0.3);
+    }
+    50% {
+        box-shadow: 
+            var(--shadow-lg),
+            0 0 50px rgba(255, 107, 74, 0.5);
     }
 }
 
