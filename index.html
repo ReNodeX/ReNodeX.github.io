@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
-  <script type="module" crossorigin src="/assets/index-C0EpV9Kb.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-C17Z1Iwz.css">
+  <script type="module" crossorigin src="/assets/index-4SdpRk0K.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-p8J5uexd.css">
 </head>
 
 <body>
@@ -19,17 +19,76 @@
     <!-- ─── LANDING ──────────────────────────────────────────── -->
     <section class="landing" id="landing">
 
-        <!-- ═══ DEV SWITCHER ═══ -->
-        <div class="dev-switcher" id="dev-switcher">
-            <span class="dev-switcher__label">ФОТО ВАРИАНТЫ</span>
-            <button class="dev-switcher__btn active" data-variant="a">A — Cinematic bar</button>
-            <button class="dev-switcher__btn" data-variant="b">B — Overlay right</button>
-            <button class="dev-switcher__btn" data-variant="c">C — Polaroid badge</button>
-            <button class="dev-switcher__btn" data-variant="d">D — In marquee</button>
-        </div>
-
         <!-- ═══ HERO SCREEN ═══ -->
-        <div class="lhero" data-imgvariant="a">
+        <div class="lhero">
+
+            <!-- Nav -->
+            <header class="landing__bar" data-anime="bar">
+                <div class="lbar__logo">
+                    <span class="lbar__name">PCraft</span>
+                    <div class="lbar__vsep"></div>
+                    <span class="lbar__category">Мастерская</span>
+                </div>
+                <nav class="lbar__nav" aria-label="Навигация">
+                    <a href="#" class="lbar__nav-item">Услуги</a>
+                    <a href="#" class="lbar__nav-item">Гарантия</a>
+                    <a href="#" class="lbar__nav-item">О нас</a>
+                </nav>
+                <div class="lbar__right">
+                    <span class="lbar__badge">
+                        <span class="lbar__badge-dot"></span>
+                        Открыто сейчас
+                    </span>
+                    <a href="tel:+70000000000" class="lbar__phone">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        +7 (XXX) XXX-XX-XX
+                    </a>
+                </div>
+            </header>
+
+            <!-- Scattered text grid -->
+            <div class="lhero__main">
+                <div class="lhero__col lhero__col--l">
+                    <b class="lhero__w">МЫ СТРОИМ</b>
+                    <b class="lhero__w">МОЩНЫЕ ПК</b>
+                    <b class="lhero__w">РЕМОНТ</b>
+                    <b class="lhero__w lhero__w--dim">И АПГРЕЙД</b>
+                </div>
+
+                <div class="lhero__col lhero__col--r">
+                    <b class="lhero__w lhero__w--sm lhero__w--dim">ДЛЯ ВСЕХ</b>
+                    <b class="lhero__w lhero__w--sm">КТО ХОЧЕТ</b>
+                    <b class="lhero__w lhero__w--sm">НАСТОЯЩЕЙ</b>
+                    <b class="lhero__w lhero__w--sm">МОЩНОСТИ</b>
+                </div>
+            </div>
+
+            <!-- Info ticker -->
+            <div class="lhero__ticker" data-anime="ticker">
+                <span>КОМПЬЮТЕРНАЯ МАСТЕРСКАЯ</span>
+                <span class="lhero__ticker-sep">·</span>
+                <span>Г. ТАНДЕМ</span>
+                <span class="lhero__ticker-sep">·</span>
+                <span>2 500+ РЕМОНТОВ</span>
+                <span class="lhero__ticker-sep">·</span>
+                <span>ГАРАНТИЯ 1 ГОД</span>
+                <span class="lhero__ticker-sep">·</span>
+                <span>ПН–СБ 9:00–20:00</span>
+            </div>
+
+            <!-- Giant brand marquee -->
+            <div class="lhero__brand" data-anime="brand">
+                <div class="lhero__brand-track">
+                    <span class="lhero__brand-word">PCraft</span>
+                    <span class="lhero__brand-word">PCraft</span>
+                    <span class="lhero__brand-word">PCraft</span>
+                    <span class="lhero__brand-word">PCraft</span>
+                    <span class="lhero__brand-word">PCraft</span>
+                    <span class="lhero__brand-word">PCraft</span>
+                </div>
+            </div>
+
+        </div><!-- /lhero -->
 
             <!-- Nav -->
             <header class="landing__bar" data-anime="bar">
