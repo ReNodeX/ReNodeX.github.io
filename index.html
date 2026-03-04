@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@300;400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
-  <script type="module" crossorigin src="/assets/index-4SdpRk0K.js"></script>
-  <link rel="stylesheet" crossorigin href="/assets/index-p8J5uexd.css">
+  <script type="module" crossorigin src="/assets/index-C0EpV9Kb.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-C17Z1Iwz.css">
 </head>
 
 <body>
@@ -19,8 +19,17 @@
     <!-- ─── LANDING ──────────────────────────────────────────── -->
     <section class="landing" id="landing">
 
+        <!-- ═══ DEV SWITCHER ═══ -->
+        <div class="dev-switcher" id="dev-switcher">
+            <span class="dev-switcher__label">ФОТО ВАРИАНТЫ</span>
+            <button class="dev-switcher__btn active" data-variant="a">A — Cinematic bar</button>
+            <button class="dev-switcher__btn" data-variant="b">B — Overlay right</button>
+            <button class="dev-switcher__btn" data-variant="c">C — Polaroid badge</button>
+            <button class="dev-switcher__btn" data-variant="d">D — In marquee</button>
+        </div>
+
         <!-- ═══ HERO SCREEN ═══ -->
-        <div class="lhero">
+        <div class="lhero" data-imgvariant="a">
 
             <!-- Nav -->
             <header class="landing__bar" data-anime="bar">
@@ -46,7 +55,7 @@
                 </div>
             </header>
 
-            <!-- Scattered text grid + center image -->
+            <!-- Scattered text grid -->
             <div class="lhero__main">
                 <div class="lhero__col lhero__col--l">
                     <b class="lhero__w">МЫ СТРОИМ</b>
@@ -61,6 +70,17 @@
                     <b class="lhero__w lhero__w--sm">НАСТОЯЩЕЙ</b>
                     <b class="lhero__w lhero__w--sm">МОЩНОСТИ</b>
                 </div>
+
+                <!-- Variant B: overlay image right -->
+                <div class="lhero__img-b">
+                    <div class="lhero__img-placeholder">PC PHOTO</div>
+                </div>
+            </div>
+
+            <!-- Variant C: polaroid badge -->
+            <div class="lhero__img-c">
+                <div class="lhero__img-placeholder">PC PHOTO</div>
+                <span class="lhero__img-c-cap">Наша сборка</span>
             </div>
 
             <!-- Info ticker -->
@@ -76,14 +96,23 @@
                 <span>ПН–СБ 9:00–20:00</span>
             </div>
 
+            <!-- Variant A: cinematic bar (between ticker and marquee) -->
+            <div class="lhero__img-a">
+                <div class="lhero__img-placeholder">PC PHOTO</div>
+            </div>
+
             <!-- Giant brand marquee -->
             <div class="lhero__brand" data-anime="brand">
                 <div class="lhero__brand-track">
                     <span class="lhero__brand-word">PCraft</span>
+                    <!-- Variant D: image inside marquee -->
+                    <span class="lhero__img-d"><div class="lhero__img-placeholder">PC</div></span>
                     <span class="lhero__brand-word">PCraft</span>
                     <span class="lhero__brand-word">PCraft</span>
+                    <span class="lhero__img-d"><div class="lhero__img-placeholder">PC</div></span>
                     <span class="lhero__brand-word">PCraft</span>
                     <span class="lhero__brand-word">PCraft</span>
+                    <span class="lhero__img-d"><div class="lhero__img-placeholder">PC</div></span>
                     <span class="lhero__brand-word">PCraft</span>
                 </div>
             </div>
